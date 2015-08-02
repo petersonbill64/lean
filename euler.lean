@@ -29,13 +29,18 @@ theorem coprime_of_prime_of_pos_of_lt (i p : ℕ) (primep : prime p) (i_gt_zero 
   
 check coprime_of_prime_of_pos_of_lt
 
-
-private definition eulerPhi_prime_minus_1.F (p : ℕ) : (Π p₂ : ℕ, p₂ < p → prime p₂ → eulerPhi p₂ = p₂ - 1) → prime p → eulerPhi p = p - 1 :=
+private definition eulerPhi_prime_minus_one.F (p : ℕ) : (Π p₂ : ℕ, p₂ < p → prime p₂ → eulerPhi p₂ = p₂ - 1) → prime p → eulerPhi p = p - 1 :=
+  take ff : (Π p₂ : ℕ, p₂ < p → prime p₂ → eulerPhi p₂ = p₂ - 1),
   take primep : prime p, 
     nat.cases_on p
-      (λ f, absurd primep not_prime_zero)
-     (λ p₁ (f : Π p₂ : ℕ, p₂ < p → prime p₂ → eulerPhi p₂ = p₂ - 1), 
-      sorry)
+      (sorry)
+     (λ p₁, sorry)
+
+check eulerPhi_prime_minus_one.F
+
+
+
+
 
 theorem eulerPhi_prime_minus_one (p : ℕ) : prime p → eulerPhi p = p - 1 := sorry
   
